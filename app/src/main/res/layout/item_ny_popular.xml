@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.example.siaappquiz.app.models.ResultResp" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circler_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="2"
+                android:textSize="16sp"
+                android:text="@{model.title}"
+                android:textColor="@android:color/black"
+                tools:text="The contents of Jensen Karp’s box of Cinnamon Toast Crunch."/>
+
+            <TextView
+                android:id="@+id/writer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:textSize="14sp"
+                android:text="@{model.byline}"
+                android:textColor="@android:color/darker_gray"
+                tools:text="By Heather Murphy"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THOMPSON"
+                    android:textSize="14sp"
+                    android:layout_alignParentStart="true"
+                    android:textColor="@android:color/darker_gray" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_calendar"
+                        android:paddingTop="2dp"
+                        android:layout_marginEnd="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{model.published_date}"
+                        android:textSize="14sp"
+                        android:layout_alignParentStart="true"
+                        android:textColor="@android:color/darker_gray"
+                        tools:text="2021-03-25"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_arrow"
+            android:paddingTop="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="5dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
