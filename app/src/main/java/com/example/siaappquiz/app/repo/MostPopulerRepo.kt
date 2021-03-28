@@ -14,17 +14,17 @@ class MostPopulerRepo (
 
     private val dataResponse= MutableLiveData<NytMostPopulerResp>()
 
-    suspend fun getDataPopular(): MutableLiveData<NytMostPopulerResp>? {
+    suspend fun getDataPopular(period :Int): MutableLiveData<NytMostPopulerResp>? {
         return withContext(Dispatchers.IO) {
-            return@withContext getDataFromApi()
+            return@withContext getDataFromApi(period )
         }
     }
 
-    private suspend fun getDataFromApi(): MutableLiveData<NytMostPopulerResp>? {
+    private suspend fun getDataFromApi(period :Int): MutableLiveData<NytMostPopulerResp>? {
 
         try {
             val response = apiRequest {
-                apiService.getDataMostPopular()
+                apiService.getDataMostPopular(period)
             }
 
             dataResponse.postValue(response)

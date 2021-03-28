@@ -6,11 +6,14 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MyApi {
 
-    @GET("svc/mostpopular/v2/viewed/7.json?api-key=mTmA8p0TEZEkVyyPrQ1zZgF1gQTc5c1l")
+    @GET("svc/mostpopular/v2/viewed/{period}.json?api-key=${Constants.keyName}")
    suspend fun getDataMostPopular(
+        @Path("period") period: Int
     ): Response<NytMostPopulerResp>
 
     companion object {

@@ -48,6 +48,8 @@ class HomeFragment : Fragment() {
             MostPopularFactory(MostPopulerRepo(MyApi()))
         ).get(HomeViewModel::class.java)
 
+        homeViewModel.period = 7
+
         val lm= LinearLayoutManager(context)
         lm.orientation= RecyclerView.VERTICAL
         binding.recylerNyt.layoutManager =lm

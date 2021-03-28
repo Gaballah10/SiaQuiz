@@ -8,7 +8,9 @@ class HomeViewModel (
     val repository: MostPopulerRepo
 )  : ViewModel() {
 
+    var period :Int = 0
+
     val dataMostPopular by lazyDeferred {
-        repository.getDataPopular()
+        repository.getDataPopular(period)
     }
 }
